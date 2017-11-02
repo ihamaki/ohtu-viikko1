@@ -81,7 +81,7 @@ public class VarastoTest {
     @Test
     public void lisaysEiMuutaSaldoaVirheellisellaArvolla() {
         varasto.lisaaVarastoon(-5);
-        assertEquals(-5, varasto.getSaldo(), vertailuTarkkuus);
+        assertEquals(0, varasto.getSaldo(), vertailuTarkkuus);
     }
 
     @Test
