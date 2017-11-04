@@ -13,7 +13,7 @@ public class Player implements Comparable<Player> {
         this.goals = goals;
         this.assists = assists;
     }
-        
+
     public int getAssists() {
         return assists;
     }
@@ -51,12 +51,31 @@ public class Player implements Comparable<Player> {
     }
 
     @Override
-    public String toString() {      
-        return String.format("%-20s",name) + " " + team + " " + String.format("%2d",goals) + " + " 
-                + String.format("%2d",assists) + " = " + getPoints();
+    public String toString() {
+        return String.format("%-20s", name) + " " + team + " " + String.format("%2d", goals) + " + "
+                + String.format("%2d", assists) + " = " + getPoints();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (getClass() != o.getClass()) {
+            return false;
+        }
+
+        Player p = (Player) o;
+
+        if (p.getName() != this.getName() || p.getTeam() != this.getTeam()
+                || p.getPoints() != this.getPoints()) {
+            return false;
+        }
+
+        return true;
     }
 
     public int compareTo(Player t) {
-        return t.getPoints()-this.getPoints();
+        return t.getPoints() - this.getPoints();
     }
 }
