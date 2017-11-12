@@ -67,12 +67,8 @@ public class Player implements Comparable<Player> {
 
         Player p = (Player) o;
 
-        if (p.getName() != this.getName() || p.getTeam() != this.getTeam()
-                || p.getPoints() != this.getPoints()) {
-            return false;
-        }
-
-        return true;
+        return p.getName() == this.getName() && p.getTeam() == this.getTeam() 
+            && p.getPoints() == this.getPoints();
     }
 
     public int compareTo(Player t) {
